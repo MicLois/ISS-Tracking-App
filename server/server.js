@@ -23,3 +23,9 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// sync models after the DB connects
+const { connectDB, sequelize } = require("./config/db");
+require("./models/Item");
+
+connectDB().then(() => sequelize.sync());
