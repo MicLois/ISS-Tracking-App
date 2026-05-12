@@ -20,7 +20,6 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
 
-
 // Add API routes here in the future - please take out after testing
 const Item = require("./models/Item");
 
@@ -38,3 +37,12 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// CORS configuration to allow requests from both local development and deployed frontend
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://your-app-frontend.onrender.com"],
+    credentials: true,
+  }),
+);
