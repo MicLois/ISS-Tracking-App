@@ -42,7 +42,10 @@ app.listen(PORT, () => {
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-app-frontend.onrender.com"],
+    origin: [
+      "http://localhost:5173",
+      "https://iss-tracking-app-client.onrender.com",
+    ],
     credentials: true,
   }),
 );
