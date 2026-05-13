@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
       <h1>Hi, I'm an App!</h1>
+      <p>Here are some items fetched from the server:</p>
       {items.map((item) => (
         <div key={item.id}>
           <h2>{item.name}</h2>
