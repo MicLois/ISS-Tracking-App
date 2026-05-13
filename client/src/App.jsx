@@ -10,6 +10,7 @@ function App() {
     <div>
       <h1>Hi, I'm an App!</h1>
       <p>Here are some items fetched from the server:</p>
+      <p>The space station is xyz away from our planet.</p>
       {items.map((item) => (
         <div key={item.id}>
           <h2>{item.name}</h2>
