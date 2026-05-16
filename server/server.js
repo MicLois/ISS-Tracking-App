@@ -59,7 +59,7 @@ app.listen(PORT, () => {
 
 app.use(
   cors({
-    origin: ["https://iss-tracking-app-client.onrender.com/"],
-    //credentials: true,
+    origin: ["https://iss-tracking-app-client.onrender.com"],
+    credentials: true,
   }),
 );
