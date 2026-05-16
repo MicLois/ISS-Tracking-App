@@ -7,6 +7,10 @@ require("./models/Item");
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Server is working");
+});
+
 // Connect to database
 connectDB().then(() => sequelize.sync());
 
