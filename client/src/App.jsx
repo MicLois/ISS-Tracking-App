@@ -1,5 +1,7 @@
 import useItems from "./hooks/useItems";
 
+import ISSTracker from "./components/ISSTracker";
+
 function App() {
   const { items, loading, error } = useItems();
 
@@ -7,17 +9,22 @@ function App() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h1>Hi, I'm an App!</h1>
-      <p>Here are some items fetched from the server:</p>
-      <p>The space station is xyz away from our planet.</p>
-      {items.map((item) => (
-        <div key={item.id}>
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <div>
+        <ISSTracker />
+      </div>
+      <div>
+        <h1>Hi, I'm an App!</h1>
+        <p>Here are some items fetched from the server:</p>
+        <p>The space station is xyz away from our planet.</p>
+        {items.map((item) => (
+          <div key={item.id}>
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
