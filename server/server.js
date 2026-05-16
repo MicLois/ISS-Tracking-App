@@ -62,6 +62,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://iss-tracking-app-client.onrender.com",
+      "https://iss-tracking-app.onrender.com/api/iss",
     ],
     credentials: true,
   }),
