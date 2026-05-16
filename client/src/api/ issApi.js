@@ -1,9 +1,13 @@
-export async function getISSLocation() {
-  const response = await fetch("https://api.open-notify.org/iss-now.json");
+const controller = new AbortController();
+const timeout = setTimeout(() => controller.abort(), 20000);
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch ISS data");
-  }
+try {
+  const res = await fetch("http://api.open-notify.org/iss-now.json", {
+    signal: controller.signal,
+  });
 
-  return response.json();
+  const data = await res.json();
+  console.log(data);
+} finally {
+  clearTimeout(timeout);
 }
