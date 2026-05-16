@@ -5,7 +5,9 @@ function ISSTracker() {
 
   useEffect(() => {
     async function fetchISS() {
-      const response = await fetch("http://localhost:3001/api/iss");
+      const response = await fetch(
+        "http://https://iss-tracking-app-client.onrender.com/",
+      );
 
       const data = await response.json();
 
