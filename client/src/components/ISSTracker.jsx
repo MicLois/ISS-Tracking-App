@@ -5,13 +5,16 @@ function ISSTracker() {
 
   useEffect(() => {
     async function fetchISS() {
-      const response = await fetch(
-        "https://https://iss-tracking-app-client.onrender.com/",
-      );
+      try {
+        const response = await fetch(
+          "https://iss-tracking-app.onrender.com/api/iss",
+        );
 
-      const data = await response.json();
-
-      setIssData(data);
+        const data = await response.json();
+        setIssData(data);
+      } catch (error) {
+        console.error("Error fetching ISS data:", error);
+      }
     }
 
     fetchISS();
@@ -26,7 +29,6 @@ function ISSTracker() {
       <h2>ISS Tracker</h2>
 
       <p>Latitude: {issData.iss_position.latitude}</p>
-
       <p>Longitude: {issData.iss_position.longitude}</p>
     </div>
   );
