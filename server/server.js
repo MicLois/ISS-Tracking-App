@@ -20,6 +20,19 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
 
+app.get("/api/iss", async (req, res) => {
+  try {
+    const response = await fetch("http://api.open-notify.org/iss-now.json");
+
+    const data = await response.json();
+
+    res.json(data);
+  } catch (error) {
+    console.error("ISS fetch error:", error);
+    res.status(500).json({ message: "Failed to fetch ISS data" });
+  }
+});
+
 // Add API routes here in the future - please take out after testing
 const Item = require("./models/Item");
 
